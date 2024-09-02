@@ -16,7 +16,7 @@ dependencies {
 }
 
 val generator = tasks.register<GenerateWebsite>("generate") {
-    src = project.provider<File> { srcFiles.first() }
+    src = srcFiles.elements.map { it.first().asFile }
     outputDir = layout.buildDirectory
 }
 
